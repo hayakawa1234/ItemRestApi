@@ -26,7 +26,13 @@ public class ItemService {
 		return itemRepository.save(item);
 	}
 
+	//商品を一件削除
 	public void delete(Integer id) {
 		itemRepository.deleteById(id);
+	}
+
+	//商品を更新
+	public Item update(Item item) {
+		return itemRepository.save(item);
 	}
 }

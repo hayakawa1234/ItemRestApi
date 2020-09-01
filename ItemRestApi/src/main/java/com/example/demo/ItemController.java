@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -49,4 +50,11 @@ public class ItemController {
 	void deleteItem(@PathVariable Integer id) {
 		itemService.delete(id);
 	}
+
+	//商品更新API
+	@PutMapping(path = "{id}")
+    Item putItem(@PathVariable Integer id, @RequestBody Item item) {
+    	item.setId(id);
+    	return itemService.update(item);
+    }
 }
