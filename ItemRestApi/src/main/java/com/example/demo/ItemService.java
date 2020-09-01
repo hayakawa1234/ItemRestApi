@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,9 +16,13 @@ public class ItemService {
 		return itemRepository.findAll();
 	}
 
+	//商品一件取得
+	public Optional<Item> findOne(int id) {
+		return itemRepository.findById(id);
+	}
+
 	//商品一覧取得
 	public Item create(Item item) {
 		return itemRepository.save(item);
 	}
-
 }
