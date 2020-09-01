@@ -31,6 +31,11 @@ public class ItemService {
 		itemRepository.deleteById(id);
 	}
 
+	//商品を全件削除
+	public void allDelete() {
+		itemRepository.deleteAll();
+	}
+
 	//商品を更新
 	public Item update(Item item) {
 		return itemRepository.save(item);

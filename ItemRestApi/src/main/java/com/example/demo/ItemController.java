@@ -51,6 +51,13 @@ public class ItemController {
 		itemService.delete(id);
 	}
 
+	//商品削除API
+		@DeleteMapping(path = "all")
+		@ResponseStatus(HttpStatus.NO_CONTENT)
+		void alDeleteItem() {
+			itemService.allDelete();
+		}
+
 	//商品更新API
 	@PutMapping(path = "{id}")
     Item putItem(@PathVariable Integer id, @RequestBody Item item) {
