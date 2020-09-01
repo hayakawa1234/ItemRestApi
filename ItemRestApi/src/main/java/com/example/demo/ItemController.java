@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,8 +38,15 @@ public class ItemController {
 
 	//商品登録API
 	@PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    Item postItem(@RequestBody Item item) {
-    	return itemService.create(item);
-    }
+	@ResponseStatus(HttpStatus.CREATED)
+	Item postItem(@RequestBody Item item) {
+		return itemService.create(item);
+	}
+
+	//商品削除API
+	@DeleteMapping(path = "{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	void deleteItem(@PathVariable Integer id) {
+		itemService.delete(id);
+	}
 }

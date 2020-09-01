@@ -25,4 +25,8 @@ public class ItemService {
 	public Item create(Item item) {
 		return itemRepository.save(item);
 	}
+
+	public void delete(Integer id) {
+		itemRepository.deleteById(id);
+	}
 }
